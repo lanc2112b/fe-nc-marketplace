@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+#product-list ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+#product-list img { 
+  width: 100%;
+  height: auto;
+}
+
+#product-list li {
+
+  width: 28%;
+  background-color: hsl(0, 0%, 80%);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+
+}
+
+
+#product-list button {
+
+  padding: 0.4rem 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid hsl(36, 50%, 45%);
+  background-color: hsl(36, 83%, 60%);
+}
+
+#product-list button:hover {
+  background-color: hsl(36, 83%, 50%);
+}
+
+#product-list button:focus {
+  background-color: hsl(36, 80%, 45%);
+}
+
+.price::before {
+  content: '£';
+}
