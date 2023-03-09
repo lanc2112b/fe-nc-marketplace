@@ -12,3 +12,10 @@ export const fetchItems = () => {
     });
 
 }
+
+export const fetchCats = () => {
+  return marketPlaceApi.get("/categories")
+  .then((results) => {
+    return results.data.categories;
+  })
+}
