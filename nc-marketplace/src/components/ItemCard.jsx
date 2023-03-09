@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 
-//TODO: Price disply
-
 const ItemCard = ({ item }) => {
     //destructure here
     const { description, img_url, item_name, price, item_id } = item;
@@ -17,7 +15,7 @@ const ItemCard = ({ item }) => {
             <Link to={`/products/${item_id}`}> read more </Link>
           </p>
           <div>
-            <p className="price">{price / 10}</p>
+            <p className="price">{(price / 10).toFixed(2)}</p>
             <button>quick add</button>
           </div>
         </article>
