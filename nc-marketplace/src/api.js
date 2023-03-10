@@ -5,13 +5,14 @@ const marketPlaceApi = axios.create({
   baseURL: "https://nc-marketplace-sem-2.onrender.com/api/",
 });
 
-export const fetchItems = () => {
-  return marketPlaceApi.get("/items")
-    .then((results) => {
-      return results.data.items
-    });
+export const fetchItems = (category = null) => {
 
-}
+  const filterURL = (category) ? `?category_name=${category}` : '';
+
+  return marketPlaceApi.get(`/items${filterURL}`).then((results) => {
+    return results.data.items;
+  });
+};
 
 export const fetchCats = () => {
   return marketPlaceApi.get("/categories")

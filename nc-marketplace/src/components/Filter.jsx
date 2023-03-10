@@ -1,39 +1,50 @@
 import { useEffect, useState } from "react";
-import {fetchCats} from "../api"
-import FilterOption from "./FilterOption"
+import { fetchCats } from "../api";
+import FilterOption from "./FilterOption";
 
+let count = 0;
 
-const Filter = ({setCategory}) => {
-const [categories, setCategories] = useState(null)
-const selectHandler = (event) => {
-    const selected = event.target.value
-    if (categories.find((obj)=> {
-        return obj.category_name===selected
-    }) ){
-        console.log(selected)
+const Filter = ({ setCategory }) => {
+
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+  const selectHandler = (event) => {
+
+    const selected = event.target.value;
+
+    if (categories.find((obj) => {
+        return obj.category_name === selected;
+    })) {
+      setCategory(selected);
     }
-   
-}
+  };
 
- useEffect(() => { 
-    fetchCats().then((results) => {
+    useEffect(() => {
+      setLoading(true);
+      fetchCats().then((results) => {
         setCategories(results);
-    })
+        setLoading(false);
+      });
+    }, []); //// This! TODO 
 
- }, [categories])
+  count++;
+  console.log(categories, count);
 
- if (!categories) return <p>Loading...</p>
+  if (loading) return <p>Loading...</p>;
 
-    return (
-        <div>
-            <select onChange={selectHandler}>
-                {categories.map((category) => { 
-                return <FilterOption key= {category.category_name} category = {category} />;
-                })}
-            </select>
-        </div>
-    )
-
-}
+  return (
+    <div>
+      <select onChange={selectHandler}>
+        <option>Select category...</option>
+        {categories.map((element) => {
+          return (
+            <FilterOption key={element.category_name} category={element} />
+          );
+        })}
+      </select>
+    </div>
+  );
+};
 
 export default Filter;
