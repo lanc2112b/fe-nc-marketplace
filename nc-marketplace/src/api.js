@@ -21,3 +21,10 @@ export const fetchCats = () => {
   })
 }
 
+export const postNewItem = (item) => {
+
+  return marketPlaceApi.post("/items", item )
+    .then((result) => {
+      console.log(result);
+    });
+}

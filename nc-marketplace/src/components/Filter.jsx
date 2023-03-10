@@ -36,7 +36,7 @@ const Filter = ({ setCategory }) => {
 
   return (
     <div>
-      <select onChange={selectHandler}>
+      <select onChange={selectHandler} id="category-dropdown">
         <option>Select category...</option>
         {categories.map((element) => {
           return (

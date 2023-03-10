@@ -18,7 +18,7 @@ const ItemList = ({ category }) => {
   return (
       <section id="product-list">
 
-          <ul>
+          <ul value={items.length}>
       {items.map((element) => {
          return <ItemCard key={element.item_id} item={element} />;
       })}

@@ -93,6 +93,48 @@
   border-radius: 0.5rem;
 }
 
-.addItemFor {
+.addItemForm {
+  width: 96dvw;
+  margin: 2rem auto;
+}
+.addItemForm form{
+     display: flex;
+    flex-direction: column;
+}
+
+input:focus {
+
+}
+textarea:focus{
+
+}
+
+select:focus{
+}
+
+.addItemForm input, textarea, select {
+  margin: 0.2rem 0 0.8rem 0;   
+  border-radius: 0.2rem;
+  min-height: 2rem;
+}
+
+.addItemForm select {
+  width: 100%;
+  background-color: #fff;
+}
+
+.addItemForm button{
   
+  padding: 0.4rem 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid hsl(36, 50%, 45%);
+  background-color: hsl(36, 83%, 60%);
+}
+
+.addItemForm button:hover {
+  background-color: hsl(36, 83%, 50%);
+}
+
+.addItemForm button:focus {
+  background-color: hsl(36, 80%, 45%);
 }

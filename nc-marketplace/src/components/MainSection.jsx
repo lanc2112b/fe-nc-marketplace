@@ -12,12 +12,19 @@ const MainSection = () => {
 
   return (
     <main>
-      {(pathname==="/products") ? <div id="category-selector">
-        <Filter setCategory={setCategory} />
-      </div>: ""}
+      {pathname === "/products" ? (
+        <div id="category-selector">
+          <Filter setCategory={setCategory} />
+        </div>
+      ) : (
+        ""
+      )}
       <Routes>
         <Route path="/products" element={<ItemList category={category} />} />
-        <Route path="/products/add/item" element={<AddItem setCategory={setCategory} />} />
+        <Route
+          path="/products/add/item"
+          element={<AddItem setCategory={setCategory} category={category} />}
+        />
         <Route path="/products/:item_id" element={<ViewItem />} />
       </Routes>
     </main>
