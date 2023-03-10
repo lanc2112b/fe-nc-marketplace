@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchItems } from "../api";
 import ItemCard from "./ItemCard";
+import {Link} from 'react-router-dom'
+
 
 
 const ItemList = ({ category }) => {
@@ -23,6 +25,9 @@ const ItemList = ({ category }) => {
          return <ItemCard key={element.item_id} item={element} />;
       })}
           </ul>
+          <Link to="/products/add/item">
+          <button className="addButton">+</button>
+          </Link>
     </section>
   );
 };

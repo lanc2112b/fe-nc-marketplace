@@ -5,10 +5,9 @@ import ViewItem from "./ViewItem";
 import { Routes, Route, useResolvedPath } from "react-router-dom";
 import Filter from "./Filter";
 
-
 const MainSection = () => {
   const [category, setCategory] = useState("");
-  const {pathname} = useResolvedPath()
+  const { pathname } = useResolvedPath();
 
   return (
     <main>

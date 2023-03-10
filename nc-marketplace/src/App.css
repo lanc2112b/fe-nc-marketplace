@@ -138,3 +138,11 @@ select:focus{
 .addItemForm button:focus {
   background-color: hsl(36, 80%, 45%);
 }
+
+
+.addButton {
+  padding: 2rem;
+  border-radius: 50%;
+  background-color: hsl(36, 83%, 60%);
+  margin: -40px 0 0 -40px;
+}

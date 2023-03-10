@@ -28,3 +28,11 @@ export const postNewItem = (item) => {
       console.log(result);
     });
 }
+
+export const getItemById = (id) => {
+
+  return marketPlaceApi.get(`/items/${id}`)
+  .then((result) => {
+    return result.data.item
+  })
+}
