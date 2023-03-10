@@ -20,3 +20,4 @@ export const fetchCats = () => {
     return results.data.categories;
   })
 }
+

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchCats } from "../api";
 import FilterOption from "./FilterOption";
 
-let count = 0;
+// let count = 0;
 
 const Filter = ({ setCategory }) => {
 
@@ -16,6 +16,7 @@ const Filter = ({ setCategory }) => {
     if (categories.find((obj) => {
         return obj.category_name === selected;
     })) {
+      console.log(selected)
       setCategory(selected);
     }
   };
@@ -28,8 +29,8 @@ const Filter = ({ setCategory }) => {
       });
     }, []); //// This! TODO 
 
-  count++;
-  console.log(categories, count);
+  // count++;
+  // console.log(categories, count);
 
   if (loading) return <p>Loading...</p>;
 
