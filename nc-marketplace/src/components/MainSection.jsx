@@ -2,7 +2,7 @@ import { useState } from "react";
 import ItemList from "./ItemList";
 import AddItem from "./AddItem";
 import ViewItem from "./ViewItem";
-import { Routes, Route, useResolvedPath } from "react-router-dom";
+import { Routes, Route, useResolvedPath, Link } from "react-router-dom";
 import Filter from "./Filter";
 
 const MainSection = () => {
@@ -13,6 +13,9 @@ const MainSection = () => {
     <main>
       {pathname === "/products" ? (
         <div id="category-selector">
+          <Link to="/products/add/item" id="add-button-link">
+            <button id="addButton">Add Item</button>
+          </Link>
           <Filter setCategory={setCategory} />
         </div>
       ) : (

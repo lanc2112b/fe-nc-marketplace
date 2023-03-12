@@ -5,29 +5,34 @@ import FilterOption from "./FilterOption";
 // let count = 0;
 
 const Filter = ({ setCategory }) => {
+  
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [selectError, setSelectError] = useState(null);
 
   const selectHandler = (event) => {
-
     const selected = event.target.value;
 
-    if (categories.find((obj) => {
-        return obj.category_name === selected;
-    })) {
-      console.log(selected)
+    const foundCat = categories.find((obj) => {
+      return obj.category_name === selected;
+    });
+
+    if (foundCat) {
+      setSelectError(null);
       setCategory(selected);
+    } else {
+      setSelectError('Please select a valid category');
     }
   };
 
-    useEffect(() => {
-      setLoading(true);
-      fetchCats().then((results) => {
-        setCategories(results);
-        setLoading(false);
-      });
-    }, []); //// This! TODO 
+  useEffect(() => {
+    setLoading(true);
+    fetchCats().then((results) => {
+      setCategories(results);
+      setLoading(false);
+    });
+  }, []); //// This! TODO
 
   // count++;
   // console.log(categories, count);
@@ -36,7 +41,18 @@ const Filter = ({ setCategory }) => {
 
   return (
     <div>
-      <select onChange={selectHandler} id="category-dropdown">
+      <label htmlFor="category-dropdown">
+        Choose Category:{" "}
+        <span className="error-text">
+          {selectError ? `(${selectError})` : ""}
+        </span>
+      </label>
+      <select
+        onChange={selectHandler}
+        id="category-dropdown"
+        className={selectError && "error-field"}
+        name="categorySelect"
+      >
         <option>Select category...</option>
         {categories.map((element) => {
           return (
