@@ -12,7 +12,7 @@ const ItemList = ({ category }) => {
     fetchItems(category).then((results) => {
       setItems(results);
     });
-  }, [items]);
+  }, [category]);
 
   if (!items) return <p>Loading...</p>;
 
